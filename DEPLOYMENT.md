@@ -22,6 +22,7 @@ CORS_ALLOWED_ORIGINS=<your-frontend-domain>
 DATABASE_URL=<supabase-postgres-connection-string>
 ACCESS_TOKEN_LIFETIME_MINUTES=60
 REFRESH_TOKEN_LIFETIME_DAYS=7
+PYTHON_VERSION=3.12.7
 ```
 
 5. Build command:
