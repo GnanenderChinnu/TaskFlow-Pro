@@ -1,8 +1,15 @@
 # TaskFlow Pro Deployment
 
+Recommended free portfolio stack:
+
+- Frontend: Vercel
+- Backend: Render web service
+- Database: Supabase PostgreSQL
+- Code: GitHub
+
 ## Backend on Render or Railway
 
-1. Create a PostgreSQL database in Render/Railway.
+1. Create a Supabase project and copy the PostgreSQL connection string.
 2. Create a backend web service from the GitHub repo.
 3. Set the service root to `backend`.
 4. Add environment variables:
@@ -12,7 +19,7 @@ SECRET_KEY=<strong-random-secret>
 DEBUG=False
 ALLOWED_HOSTS=<your-backend-domain>
 CORS_ALLOWED_ORIGINS=<your-frontend-domain>
-DATABASE_URL=<postgres-service-url>
+DATABASE_URL=<supabase-postgres-connection-string>
 ACCESS_TOKEN_LIFETIME_MINUTES=60
 REFRESH_TOKEN_LIFETIME_DAYS=7
 ```
@@ -27,6 +34,18 @@ pip install -r requirements.txt && python manage.py collectstatic --noinput && p
 
 ```bash
 gunicorn taskflow.wsgi:application
+```
+
+This repo also includes a Render blueprint:
+
+```text
+render.yaml
+```
+
+If Render asks for the root directory, use:
+
+```text
+backend
 ```
 
 ## Frontend on Vercel or Netlify
@@ -51,6 +70,16 @@ npm run build
 dist
 ```
 
+For Vercel:
+
+```text
+Root Directory: frontend
+Framework Preset: Vite
+Build Command: npm run build
+Output Directory: dist
+Environment Variable: VITE_API_BASE_URL=https://your-render-backend.onrender.com/api
+```
+
 ## Frontend on GitHub Pages
 
 This repo includes a GitHub Actions workflow:
@@ -70,6 +99,21 @@ https://your-backend-domain/api
 ```
 
 ## Database setup
+
+Supabase setup:
+
+1. Create a Supabase project.
+2. Open Project Settings.
+3. Open Database.
+4. Copy the URI connection string.
+5. Replace `[YOUR-PASSWORD]` with your database password.
+6. Use it as `DATABASE_URL` on Render.
+
+Supabase connection strings normally look like:
+
+```text
+postgresql://postgres:<password>@db.<project-ref>.supabase.co:5432/postgres
+```
 
 Local PostgreSQL example:
 

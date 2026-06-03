@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: taskflow-pro-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: ./build.sh
+    startCommand: gunicorn taskflow.wsgi:application
+    envVars:
+      - key: SECRET_KEY
+        sync: false
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        sync: false
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: ACCESS_TOKEN_LIFETIME_MINUTES
+        value: "60"
+      - key: REFRESH_TOKEN_LIFETIME_DAYS
+        value: "7"
