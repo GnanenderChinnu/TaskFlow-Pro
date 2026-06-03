@@ -10,13 +10,15 @@ Frontend website:
 
 Vercel frontend website:
 
-Add your Vercel deployment URL here after deployment.
+[https://task-flow-pro-seven.vercel.app/](https://task-flow-pro-seven.vercel.app/)
 
 GitHub repository:
 
 [https://github.com/GnanenderChinnu/TaskFlow-Pro](https://github.com/GnanenderChinnu/TaskFlow-Pro)
 
-Note: the hosted frontend needs `VITE_API_BASE_URL` configured to a deployed backend API, such as Render or Railway, for login and task sync to work online.
+Hosted backend API:
+
+[https://taskflow-pro-backend-8q76.onrender.com/api](https://taskflow-pro-backend-8q76.onrender.com/api)
 
 ## Folder structure
 

@@ -78,7 +78,7 @@ Root Directory: frontend
 Framework Preset: Vite
 Build Command: npm run build
 Output Directory: dist
-Environment Variable: VITE_API_BASE_URL=https://your-render-backend.onrender.com/api
+Environment Variable: VITE_API_BASE_URL=https://taskflow-pro-backend-8q76.onrender.com/api
 ```
 
 ## Frontend on GitHub Pages
